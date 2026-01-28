@@ -1,0 +1,1 @@
+export const [john, peter] = ["I am john", "I am peter"]
