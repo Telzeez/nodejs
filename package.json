@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node event.js",
+    "dev": "nodemon event.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +16,8 @@
     "axios": "^1.13.2",
     "loadash": "^1.0.0",
     "lodash-es": "^4.17.23"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
