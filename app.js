@@ -1,24 +1,24 @@
-import { resolve } from 'dns';
-import {promisify} from 'util'
-import {readFile, writeFile} from 'fs';
-import { get } from 'http';
+import { createServer } from "http";
 
-const readFilePromise = promisify(readFile);
-const writeFilePromise =  promisify(writeFile)
-
-const getTest = (filePath) => {
-   return new Promise((resolve, reject) => {
-      readFile(filePath, 'utf8', (err, data) => {
-         err ? reject(err) : resolve(data)
-      });
-   })
-}
-getTest('./content/subfolder/test.txt').then(data => console.log(data)).catch(err => console.log(err));
-
-const start = async () => {
-   try {
-      const first = await getTest()
-   } catch (error) {
-      
+const server = createServer((req, res) => {
+   if (req.url === '/') {
+      res.write('Homepage');
+      res.end('Welcome to my page');
+   };
+  if (req.url === '/about') {
+   // Blocking code
+   for (let i = 0; i < 1000; i++) {
+      for (let j = 0; j < 1000; j++) {
+         res.write(`${i}- ${j}`)
+         
+      }
    }
-}
+      res.end('About Page');
+   };
+
+      res.end('Page Not Found ')
+ 
+  
+}).listen(8080, ()=> {
+   console.log('started listeneing on port')
+})
