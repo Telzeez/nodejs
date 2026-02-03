@@ -1,0 +1,15 @@
+when using express you use it for two options
+(1). using it to set up an API
+(2). as a template with serving server side rendering
+
+using route for a specific product
+route parameters and query string
+app.get('/api/products/:productId')
+we then destructure the req object 
+const {productId} = req.params //route parameters
+const {search, limit} = req.query // for query string
+console.log(typeof productId)  //string
+
+middlewares in express
+they are functions that execute during request to the server
+i.e request => middleware => response

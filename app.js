@@ -1,24 +1,15 @@
-import { createServer } from "http";
+import { createServer  } from "http";
+import { readFile, readFileSync } from "fs";
 
-const server = createServer((req, res) => {
-   if (req.url === '/') {
-      res.write('Homepage');
-      res.end('Welcome to my page');
-   };
-  if (req.url === '/about') {
-   // Blocking code
-   for (let i = 0; i < 1000; i++) {
-      for (let j = 0; j < 1000; j++) {
-         res.write(`${i}- ${j}`)
-         
-      }
-   }
-      res.end('About Page');
-   };
 
-      res.end('Page Not Found ')
- 
-  
-}).listen(8080, ()=> {
-   console.log('started listeneing on port')
-})
+const getText = (path) => {
+   return new Promise((resolve, reject) => {
+      readFile(path, 'utf8', (err, res) => {
+         if(err) reject(err);
+
+         resolve(res);
+      })
+   })
+};
+
+getText('./content/text.txt').then(data=> console.log(data)).catch(error => console.log(error))

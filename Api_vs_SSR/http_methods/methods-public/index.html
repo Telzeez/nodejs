@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP Methods Explorer</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+
+    <!-- New Navigation Bar -->
+    <nav id="navbar">
+    
+            <h3 class="nav-logo">Express<span>Labs</span></h3>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/api/products">Products</a></li>
+                <li><a href="/api/people">People</a></li>
+            </ul>
+    </nav>
+
+
+    <form action="/login" method="post" class="card">
+        <h2>Javascript Forrm</h2>
+        <label for="name" id="name">Enter name</label>
+        <input type="text" id="name-input" name="name"/>
+
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <div id="result"> </div>
+    <div id="form-alert"></div>
+ 
+    <div class="card">
+        <h1>HTTP Methods API</h1>
+         <div class="method-list">
+            <div class="method GET"><code>GET</code> <a href="/api/products">View Products</a></div>
+            <div class="method POST"><code>POST</code> <button id="btn-post">Test Post</button></div>
+        </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
